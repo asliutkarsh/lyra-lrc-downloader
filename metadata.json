@@ -1,0 +1,5 @@
+{
+  "name": "Lyra - LRC Downloader",
+  "description": "A modern web application to download synchronized lyrics (.lrc) files for single songs or playlists using LRCLIB and Google Gemini for intelligent metadata parsing.",
+  "requestFramePermissions": []
+}
