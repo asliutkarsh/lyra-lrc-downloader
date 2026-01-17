@@ -19,7 +19,11 @@ export const getLyrics = async (
 
     if (albumName) params.append('album_name', albumName);
 
-    const response = await fetch(`${BASE_URL}${endpoint}?${params.toString()}`);
+    const response = await fetch(`${BASE_URL}${endpoint}?${params.toString()}`, {
+      headers: {
+        'User-Agent': 'Lyra v1.0.0 (https://github.com/yourusername/lyrical---lrc-downloader)'
+      }
+    });
 
     if (response.status === 404) return null;
     if (!response.ok) throw new Error('Network response was not ok');
@@ -44,7 +48,11 @@ export const searchLyrics = async (
     if (artistName) params.append('artist_name', artistName);
     if (albumName) params.append('album_name', albumName);
 
-    const response = await fetch(`${BASE_URL}/search?${params.toString()}`);
+    const response = await fetch(`${BASE_URL}/search?${params.toString()}`, {
+      headers: {
+        'User-Agent': 'Lyra v1.0.0 (https://github.com/yourusername/lyrical---lrc-downloader)'
+      }
+    });
     if (!response.ok) throw new Error('Search failed');
 
     return await response.json();

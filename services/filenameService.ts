@@ -47,5 +47,8 @@ export const formatFilename = (track: LrcLibTrack, format: FilenameFormat = defa
         .trim();
 
     // Sanitize filename for filesystem
-    return filename.replace(/[<>:"/\\|?*]/g, '_');
+    const sanitized = filename.replace(/[<>:"/\\|?*]/g, '_');
+
+    // Add .lrc extension
+    return sanitized + '.lrc';
 };
